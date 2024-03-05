@@ -1,6 +1,5 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
-import { postcss } from "tailwindcss";
+import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Main from "../../components/Main.astro";
 import H1 from "../../components/H1.astro";
@@ -21,9 +20,9 @@ export const getStaticPaths = async () => {
   return paths;
 };
 
-type Props = {
+interface Props {
   post: CollectionEntry<"posts">;
-};
+}
 
 const { post } = Astro.props;
 const { Content } = await post.render();
